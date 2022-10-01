@@ -5,6 +5,7 @@ import photo from "./images/photo.jpg"
 import opv from "./images/opv.png"
 import almightystocks from "./images/almightystock.png"
 import bettsllc from "./images/bettsllc.png"
+import prestige from "./images/prestige.png"
 import instagram from "./images/instagram.png"
 import email from "./images/email.png"
 import 'antd/dist/antd.css';
@@ -39,6 +40,11 @@ function App()
       name: "Betts LLC",
       photo: bettsllc,
       link: "https://bettsllc.co/"
+    },
+    {
+      name: "Prestige Consulting",
+      photo: prestige,
+      link: "https://gofreshpr.biz/"
     }
   ]
 
@@ -106,19 +112,44 @@ function App()
               flexDirection: useWindowDimensions().width > 900 ? 'row' : 'column', justifyContent: 'center'
             }}>
               {
-                websites.map(item =>
+                websites.slice(0, 3).map(item =>
                   {
                     return (
-                      <a target="_blank" rel="noreferrer" href={item.link}>
-                        <Card
-                          hoverable
-                          // onClick={() => location.href = item.link}
-                          style={{ width: 300, margin: 10 }}
-                          cover={<img src={item.photo} />}
-                        >
-                          <Meta title={<a target="_blank" rel="noreferrer" href={item.link}>{item.name}</a>}/>
-                        </Card>
-                      </a>
+                      <>
+                        <a target="_blank" rel="noreferrer" href={item.link}>
+                          <Card
+                            hoverable
+                            // onClick={() => location.href = item.link}
+                            style={{ width: 300, margin: 10 }}
+                            cover={<img src={item.photo} />}
+                          >
+                            <Meta title={<a target="_blank" rel="noreferrer" href={item.link}>{item.name}</a>}/>
+                          </Card>
+                        </a>
+                      </>
+                    )
+                  })
+              }
+            </div>
+            <div style={{width: '100%', alignItems: 'center', display: 'flex',
+              flexDirection: useWindowDimensions().width > 900 ? 'row' : 'column', justifyContent: 'center'
+            }}>
+              {
+                websites.slice(-1).map(item =>
+                  {
+                    return (
+                      <>
+                        <a target="_blank" rel="noreferrer" href={item.link}>
+                          <Card
+                            hoverable
+                            // onClick={() => location.href = item.link}
+                            style={{ width: 300, margin: 10 }}
+                            cover={<img src={item.photo} />}
+                          >
+                            <Meta title={<a target="_blank" rel="noreferrer" href={item.link}>{item.name}</a>}/>
+                          </Card>
+                        </a>
+                      </>
                     )
                   })
               }
